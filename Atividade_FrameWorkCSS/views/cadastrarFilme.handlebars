@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Filme</title>
+</head>
+<body>
+    <h1>Cadastrar Filme</h1>
+    <form action="/filme/cadastrar" method="POST">
+
+    <label>Nome:</label>
+    <input type="text" name="nome">
+
+    <br>
+
+    <label>Ano:</label>
+    <input type="number" name="ano">
+
+    <br>
+
+    <label>Diretor:</label>
+    <select name="diretorId" required>
+        <option value="">Selecione um diretor</option>
+            {{#each diretores}}
+        <option value="{{id}}">{{nome}}</option>
+            {{/each}}
+    </select>
+  
+    <br>
+
+    <label>Artistas:</label>
+    <select name="artistas" multiple>
+        {{#each artistas}}
+        <option value="{{this.id}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+
+    <br>
+
+    <button type="submit">Salvar</button>
+
+    </form>
+</body>
+</html>

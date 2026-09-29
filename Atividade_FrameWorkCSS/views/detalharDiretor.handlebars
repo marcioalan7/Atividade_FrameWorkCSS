@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhar Diretor</title>
+</head>
+<body>
+    <h1>Detalhes do Diretor</h1>
+    <a href = '/'>Voltar</a>
+    <br>
+
+    <h2>{{diretor.nome}}</h2>
+    <p><strong>Ano de nascimento:</strong>{{diretor.anoNascimento}}</p>
+    <p><strong>Nacionalidade:</strong>{{diretor.nacionalidade}}</p>
+
+    <hr>
+
+    <h3>Filmes dirigidos</h3>
+    {{#if diretor.filmes.length}}
+
+    <ul>
+        {{#each diretor.filmes}}
+        <li><a href="/filmes/{{this.id}}">{{this.nome}}</a>- {{this.ano}}</li>
+        {{/each}}
+    </ul>
+
+    {{else}}
+
+    <p>Este diretor ainda não possui filmes cadastrados.</p>
+
+    {{/if}}
+
+</body>
+</html>

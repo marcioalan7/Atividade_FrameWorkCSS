@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhar Artista</title>
+</head>
+<body>
+    <h1>Detalhes do Artista</h1>
+    <a href = '/'>Voltar</a>
+
+    <h2>{{artista.nome}}</h2>
+    <p><strong>Nome artístico:</strong>{{artista.nomeArtistico}}</p>
+    <p><strong>Ano de nascimento:</strong>{{artista.anoNascimento}}</p>
+
+    <hr>
+
+    <h3>Filmes</h3>
+    {{#if artista.filmes.length}}
+
+    <ul>
+        {{#each artista.filmes}}
+        <li><a href="/filmes/{{this.id}}">{{this.nome}}</a>- {{this.ano}}</li>
+        {{/each}}
+    </ul>
+
+    {{else}}
+
+    <p>Este artista ainda não possui filmes cadastrados.</p>
+
+    {{/if}}
+
+</body>
+</html>

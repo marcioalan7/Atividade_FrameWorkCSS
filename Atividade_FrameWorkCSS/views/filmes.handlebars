@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+</head>
+<body>
+    <h1>Filmes</h1>
+
+    <a href = "/filme/cadastrar">Cadastrar novo</a>
+    <br>
+    <a href = '/'>Home</a>
+    <br>
+
+    {{#if filmes.length}}
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Ano</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+    <tbody>
+        {{#each filmes}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.nome}}</td>
+            <td>{{this.ano}}</td>
+
+            <td>
+                <a href="/filmes/{{this.id}}">Detalhar</a>
+                <a href="/filme/{{this.id}}/editar">Editar</a>
+
+            <form action="/filme/{{this.id}}/delete" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+
+                <button type="submit">
+                    Excluir
+                </button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+</tbody>
+
+    </table>
+
+    {{else}}
+    <p>Nenhum filme cadastrado.</p>
+    {{/if}}
+
+</body>
+</html>

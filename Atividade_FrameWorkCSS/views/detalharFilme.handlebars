@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhar Filme</title>
+</head>
+<body>
+    <h1>Detalhes do Filme</h1>
+    <a href = '/'>Voltar</a>
+    <br>
+
+    <h2>{{filme.nome}}</h2>
+    <p><strong>Ano:</strong> {{filme.ano}}</p>
+
+    <hr>
+
+    <h3>Diretor</h3>
+    {{#if filme.diretor}}
+
+    <p><strong>Nome:</strong> {{filme.diretor.nome}}</p>
+    <p><strong>Ano de nascimento:</strong>{{filme.diretor.anoNascimento}}</p>
+    <p><strong>Nacionalidade:</strong>{{filme.diretor.nacionalidade}}</p>
+
+    {{else}}
+
+    <p>Diretor não cadastrado.</p>
+
+    {{/if}}
+
+    <hr>
+
+    <h3>Artistas</h3>
+    {{#if filme.artistas.length}}
+
+    <ul>
+        {{#each filme.artistas}}
+        <li>
+            {{this.nome}}
+            {{#if this.nomeArtistico}}
+                ({{this.nomeArtistico}})
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+
+    {{else}}
+
+    <p>Nenhum artista cadastrado.</p>
+
+    {{/if}}
+
+    <hr>
+
+    <h3>Ficha Técnica</h3>
+    {{#if filme.fichaTecnica}}
+
+    <p><strong>Duração:</strong>{{filme.fichaTecnica.duracaoMinutos}} minutos</p>
+    <p><strong>Orçamento:</strong>R$ {{filme.fichaTecnica.orcamento}}</p>
+    <p><strong>Bilheteria:</strong>R$ {{filme.fichaTecnica.bilheteria}}</p>
+
+    {{else}}
+
+        <p>Ficha técnica não cadastrada.</p>
+
+    <a href="/filme/{{filme.id}}/ficha-tecnica/cadastrar">Cadastrar ficha técnica</a>
+
+    {{/if}}
+</body>
+</html>

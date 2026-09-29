@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Filme</title>
+</head>
+<body>
+    <h1>Editar Filme</h1>
+    <form action="/filme/{{filme.id}}/editar" method="POST">
+
+    <input type="hidden" name="_method" value="PUT">
+
+    <label>Nome:</label>
+    <input type="text" name="nome" value="{{filme.nome}}" required>
+
+    <br>
+
+    <label>Ano:</label>
+    <input type="number" name="ano" value="{{filme.ano}}" required>
+
+    <br>
+
+    <button type="submit">Salvar alterações</button>
+
+    </form>
+    
+</body>
+</html>

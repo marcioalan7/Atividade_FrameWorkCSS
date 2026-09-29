@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistas</title>
+</head>
+<body>
+    <h1>Artistas</h1>
+    <a href="/artista/cadastrar">Cadastrar novo artista</a>
+    <br>
+    <a href="/">Home</a>
+
+    <ul>
+        {{#each artistas}}
+
+        <li>
+            <a href="/artistas/{{this.id}}">
+                {{this.nome}}
+            </a>
+
+            <a href="/artista/{{this.id}}/editar">
+                Editar
+            </a>
+
+            <form action="/artista/{{this.id}}/delete" method="POST" style="display:inline;">
+                <input type="hidden" name="_method" value="DELETE">
+
+                <button type="submit">
+                    Excluir
+                </button>
+            </form>
+        </li>
+
+        {{/each}}
+    </ul>
+
+</body>
+</html>
