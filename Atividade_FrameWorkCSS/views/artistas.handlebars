@@ -1,39 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artistas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Artistas</h1>
-    <a href="/artista/cadastrar">Cadastrar novo artista</a>
-    <br>
-    <a href="/">Home</a>
+    <nav class="navbar bg-dark navbar-dark">
+        <div class="container">
 
-    <ul>
-        {{#each artistas}}
+            <ul class="navbar-nav flex-row gap-3 me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">
+                        Home
+                    </a>
+                </li>
 
-        <li>
-            <a href="/artistas/{{this.id}}">
-                {{this.nome}}
-            </a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/artistas">
+                        Artistas
+                    </a>
+                </li>
 
-            <a href="/artista/{{this.id}}/editar">
-                Editar
-            </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/artista/cadastrar">
+                        Cadastrar artista
+                    </a>
+                </li>
+            </ul>
 
-            <form action="/artista/{{this.id}}/delete" method="POST" style="display:inline;">
-                <input type="hidden" name="_method" value="DELETE">
+        </div>
+    </nav>
 
-                <button type="submit">
-                    Excluir
-                </button>
-            </form>
-        </li>
+    <div class="container mt-4">
+        <h1>Artistas</h1>
 
-        {{/each}}
-    </ul>
+        <ul class="list-group">
+            {{#each artistas}}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <a 
+                        href="/artistas/{{this.id}}"
+                        class="text-decoration-none"
+                    >
+                        {{this.nome}}
+                    </a>
+                </div>
 
+                <div>
+                    <a 
+                        href="/artista/{{this.id}}/editar"
+                        class="btn btn-warning btn-sm"
+                    >
+                        Editar
+                    </a>
+
+                    <form 
+                        action="/artista/{{this.id}}/delete" 
+                        method="POST" 
+                        style="display:inline;"
+                    >
+
+                        <input 
+                            type="hidden" 
+                            name="_method" 
+                            value="DELETE"
+                        >
+
+                        <button 
+                            type="submit"
+                            class="btn btn-danger btn-sm"
+                        >
+                            Excluir
+                        </button>
+
+                    </form>
+
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

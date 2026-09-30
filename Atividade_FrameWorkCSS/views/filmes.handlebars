@@ -4,55 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Filmes</h1>
+    <a href="/" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center position-fixed shadow" style="top: 20px; left: 20px; width: 48px; height: 48px; z-index: 1050;" aria-label="Voltar para o início">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+</a>
+{{#if filmes.length}}
+<div id="carouselFilmes" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
 
-    <a href = "/filme/cadastrar">Cadastrar novo</a>
-    <br>
-    <a href = '/'>Home</a>
-    <br>
-
-    {{#if filmes.length}}
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Ano</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-
-    <tbody>
         {{#each filmes}}
-        <tr>
-            <td>{{this.id}}</td>
-            <td>{{this.nome}}</td>
-            <td>{{this.ano}}</td>
+        <div class="carousel-item {{#if @first}}active{{/if}}">
+            <div class="d-flex flex-column justify-content-center align-items-center bg-dark text-white text-center px-5" style="min-height: 100vh;">
+                <h2 class="display-3 mb-3">{{this.nome}}</h2>
+                <p class="lead mb-1">{{this.ano}}</p>
+                <a href="/filmes/{{this.id}}" class="btn btn-outline-light mt-3">Detalhar</a>
+            </div>
+        </div>
+        {{/each}}
 
-            <td>
-                <a href="/filmes/{{this.id}}">Detalhar</a>
-                <a href="/filme/{{this.id}}/editar">Editar</a>
+    </div>
 
-            <form action="/filme/{{this.id}}/delete" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-
-                <button type="submit">
-                    Excluir
-                </button>
-            </form>
-        </td>
-    </tr>
-    {{/each}}
-</tbody>
-
-    </table>
-
-    {{else}}
-    <p>Nenhum filme cadastrado.</p>
-    {{/if}}
-
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselFilmes" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselFilmes" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{{else}}
+<p>Nenhum filme cadastrado.</p>
+{{/if}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
