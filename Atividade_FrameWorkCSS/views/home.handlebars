@@ -7,19 +7,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
 </head>
 <body>
-    <h1>Ínicio</h1>
-    <ul>
-        <li><a href = 'filme/cadastrar'>Cadastrar Filme</a></li>
-        <li><a href = '/filmes'>Ver Filmes</a></li>
-    </ul>
-    <ul>
-        <li><a href = 'diretor/cadastrar'>Cadastrar Diretor</a></li>
-        <li><a href = '/diretores'>Ver Diretores</a></li>
-    </ul>
-    <ul>
-        <li><a href = '/artista/cadastrar'>Cadastrar Artista</a></li>
-        <li><a href = '/artistas'>Ver Artistas</a></li>
 
-        <button type="button" class="btn btn-primary">Teste</button>
-    </ul>
+    <div class="container mt-4">
+
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+            Bem-vindo ao sistema de gerenciamento de filmes!
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <h1>Ínicio</h1>
+
+    <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Filmes</h5>
+                        <p class="card-text">Gerencie o catálogo de filmes.</p>
+                        <a href="/filme/cadastrar" class="btn btn-primary">Cadastrar</a>
+                        <a href="/filmes" class="btn btn-outline-secondary">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Diretores</h5>
+                        <p class="card-text">Gerencie os diretores.</p>
+                        <a href="/diretor/cadastrar" class="btn btn-primary">Cadastrar</a>
+                        <a href="/diretores" class="btn btn-outline-secondary">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Artistas</h5>
+                        <p class="card-text">Gerencie os artistas.</p>
+                        <a href="/artista/cadastrar" class="btn btn-primary">Cadastrar</a>
+                        <a href="/artistas" class="btn btn-outline-secondary">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
